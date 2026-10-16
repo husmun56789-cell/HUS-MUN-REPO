@@ -1,0 +1,7 @@
+# Netlify build settings: Expo exports a static site into dist/.
+[build]
+  command = "npx expo export -p web"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

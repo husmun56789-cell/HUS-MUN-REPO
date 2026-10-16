@@ -1,17 +1,17 @@
 {
   "expo": {
-    "name": "husmun",
+    "name": "HUSMUN",
     "slug": "husmun",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#04101F",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -19,7 +19,24 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "static",
+      "name": "HUSMUN 2026",
+      "shortName": "HUSMUN",
+      "themeColor": "#04101F",
+      "backgroundColor": "#04101F",
+      "description": "HUSMUN 4th Edition — Model United Nations at Hiranandani Upscale School, Chennai. 18th–19th December 2026."
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-font"
+    ],
+    "scheme": "husmun",
+    "backgroundColor": "#04101F",
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }
