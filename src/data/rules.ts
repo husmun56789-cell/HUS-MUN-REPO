@@ -38,7 +38,7 @@ export const rules: Rule[] = [
     title: 'Contraband',
     blocks: [
       {
-        text: 'Any substances or intoxicants will be confiscated immediately, as well as lighters or matches, caffeinated drinks, and outside food, which will also be reported. All phones will be submitted to the front office in the foyer. If found in bags or on persons during the conference, they will be confiscated. Bag checks will also be conducted on both days of the conference. Ordering items through delivery apps is strictly prohibited and will be reported to the secretariat and EB.',
+        text: 'Any substances or intoxicants will be confiscated immediately, as well as lighters or matches, caffeinated drinks, and outside food, which will also be reported. If found in bags or on persons during the conference, they will be confiscated. Bag checks will also be conducted on both days of the conference. Ordering items through delivery apps is strictly prohibited and will be reported to the secretariat and EB.',
       },
     ],
   },

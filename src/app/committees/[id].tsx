@@ -6,7 +6,7 @@ import { Divider, SectionHeading } from '../../components/Ornament';
 import { PageScroll } from '../../components/PageScroll';
 import { Reveal } from '../../components/Reveal';
 import { AgendaCard, Footer, Section } from '../../components/Sections';
-import { committees, conference, findCommittee } from '../../data/committees';
+import { committees, conference, findCommittee, type Brief } from '../../data/committees';
 import { colors, fonts, space, webOnly } from '../../theme';
 import { useViewport } from '../../hooks/useViewport';
 
@@ -64,6 +64,10 @@ export default function CommitteePage() {
             <AgendaCard code={committee.code} agenda={committee.agenda} />
           </Reveal>
         ) : null}
+        <Reveal delay={200} style={styles.agendaBlock}>
+          <SectionHeading title="Committee Brief" />
+          <BriefCard brief={committee.brief} />
+        </Reveal>
         <Reveal delay={240}>
           <View style={[styles.facts, compact && styles.factsCompact]}>
             <Fact label="Dates" value={conference.dates} />
@@ -102,6 +106,21 @@ function TopBar({ compact }: { compact: boolean }) {
         </Pressable>
       </Link>
       <View style={styles.topSide} />
+    </View>
+  );
+}
+
+function BriefCard({ brief }: { brief: Brief }) {
+  return (
+    <View style={styles.briefCard}>
+      <Text style={styles.briefText}>{brief.intro}</Text>
+      {brief.points?.map((point) => (
+        <View key={point} style={styles.briefPoint}>
+          <View style={styles.briefBullet} />
+          <Text style={[styles.briefText, styles.briefPointText]}>{point}</Text>
+        </View>
+      ))}
+      {brief.outro ? <Text style={styles.briefText}>{brief.outro}</Text> : null}
     </View>
   );
 }
@@ -187,6 +206,25 @@ const styles = StyleSheet.create({
   quote: { fontFamily: fonts.serif, fontSize: 28, lineHeight: 42, color: colors.ivory, textAlign: 'center' },
   quoteCompact: { fontSize: 21, lineHeight: 32 },
   agendaBlock: { alignSelf: 'center', width: '100%', maxWidth: 760, gap: space.lg, marginTop: space.lg },
+  briefCard: {
+    gap: space.md,
+    paddingVertical: space.lg,
+    paddingHorizontal: space.lg,
+    backgroundColor: colors.navy,
+    borderWidth: 1,
+    borderColor: colors.goldLine,
+    borderRadius: 4,
+  },
+  briefText: { fontFamily: fonts.serif, fontSize: 19, lineHeight: 29, color: colors.ivory },
+  briefPoint: { flexDirection: 'row', alignItems: 'flex-start', gap: space.sm, paddingLeft: space.xs },
+  briefBullet: {
+    width: 7,
+    height: 7,
+    marginTop: 11,
+    backgroundColor: colors.gold,
+    transform: [{ rotate: '45deg' }],
+  },
+  briefPointText: { flex: 1, color: colors.muted },
   facts: { alignSelf: 'center', width: '100%', maxWidth: 760, flexDirection: 'row', gap: space.md },
   factsCompact: { flexDirection: 'column' },
   fact: {
