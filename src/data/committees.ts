@@ -11,6 +11,7 @@ export type Committee = {
   // Press committees report on the others and have no agenda of their own.
   agenda?: string;
   brief: Brief;
+  teams?: { options: string[]; teamSize: number };
   emblem: ImageSourcePropType;
 };
 
@@ -79,6 +80,10 @@ export const committees: Committee[] = [
     overview:
       'Step into the world of professional cricket, navigating strategy, leadership, business, and high-pressure decisions.',
     agenda: 'Building the ultimate IPL Team',
+    teams: {
+      options: ['RCB', 'CSK', 'MI', 'PBKS', 'LSG', 'DC', 'GT', 'KKR', 'RR', 'SRH'],
+      teamSize: 3,
+    },
     brief: { intro: 'A competitive, strategy-driven committee centred around building the best possible IPL team. Delegates will need to evaluate players, make smart auction decisions, manage budgets, and construct a balanced squad capable of competing at the highest level. Perfect for cricket enthusiasts and strategic thinkers who enjoy negotiation, team-building, and the business side of professional sport.' },
     emblem: require('../../assets/images/committees/ipl.png'),
   },
@@ -118,7 +123,10 @@ export const conference = {
     'Egattur Village, Rajiv Gandhi Salai, Kelambakkam,',
     'Chennai, Tamil Nadu — 600130',
   ],
-  fee: '₹800',
+  fees: [
+    { label: 'Internal Delegates', amount: '₹800' },
+    { label: 'External Delegates', amount: '₹1,600' },
+  ],
   motto: ['Debate', 'Diplomacy', 'Leadership', 'Impact'],
 };
 

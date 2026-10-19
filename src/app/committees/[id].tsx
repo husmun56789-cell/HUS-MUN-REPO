@@ -68,11 +68,31 @@ export default function CommitteePage() {
           <SectionHeading title="Committee Brief" />
           <BriefCard brief={committee.brief} />
         </Reveal>
+        {committee.teams ? (
+          <Reveal delay={220} style={styles.agendaBlock}>
+            <SectionHeading title="Teams" />
+            <View style={styles.briefCard}>
+              <Text style={styles.teamsNote}>
+                {committee.teams.options.length} teams to choose · Teams of {committee.teams.teamSize}
+              </Text>
+              <View style={styles.teamGrid}>
+                {committee.teams.options.map((team) => (
+                  <View key={team} style={[styles.teamChip, { width: compact ? '47%' : '18%' }]}>
+                    <Text style={styles.teamText}>{team}</Text>
+                  </View>
+                ))}
+              </View>
+            </View>
+          </Reveal>
+        ) : null}
         <Reveal delay={240}>
           <View style={[styles.facts, compact && styles.factsCompact]}>
             <Fact label="Dates" value={conference.dates} />
             <Fact label="Venue" value={conference.venue} />
-            <Fact label="Entry Fees" value={conference.fee} />
+            <Fact
+              label="Entry Fees"
+              value={conference.fees.map((f) => `${f.amount} ${f.label.replace(' Delegates', '')}`).join('  ·  ')}
+            />
           </View>
         </Reveal>
         <Reveal delay={360}>
@@ -225,6 +245,18 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '45deg' }],
   },
   briefPointText: { flex: 1, color: colors.muted },
+  teamsNote: { fontFamily: fonts.displayRegular, fontSize: 15, letterSpacing: 2, color: colors.goldLight, textAlign: 'center', textTransform: 'uppercase' },
+  // 5 × 2 on desktop, 2 × 5 on phones — every row full so the grid stays symmetrical.
+  teamGrid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: space.sm },
+  teamChip: {
+    alignItems: 'center',
+    paddingVertical: space.sm,
+    borderWidth: 1,
+    borderColor: colors.goldLine,
+    borderRadius: 4,
+    backgroundColor: colors.navyDeep,
+  },
+  teamText: { fontFamily: fonts.display, fontSize: 18, letterSpacing: 2, color: colors.ivory },
   facts: { alignSelf: 'center', width: '100%', maxWidth: 760, flexDirection: 'row', gap: space.md },
   factsCompact: { flexDirection: 'column' },
   fact: {
