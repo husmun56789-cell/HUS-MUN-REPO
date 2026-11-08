@@ -2,6 +2,8 @@ import { Link, Redirect, useLocalSearchParams, type Href } from 'expo-router';
 import Head from 'expo-router/head';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { CountryMatrixCallout } from '../../components/Callouts';
+import { NavBar } from '../../components/NavBar';
 import { Divider, SectionHeading } from '../../components/Ornament';
 import { PageScroll } from '../../components/PageScroll';
 import { Reveal } from '../../components/Reveal';
@@ -9,8 +11,6 @@ import { AgendaCard, Footer, Section } from '../../components/Sections';
 import { committees, conference, findCommittee, type Brief } from '../../data/committees';
 import { colors, fonts, space, webOnly } from '../../theme';
 import { useViewport } from '../../hooks/useViewport';
-
-const logo = require('../../../assets/images/logo.png');
 
 // Pre-render one HTML page per committee for the static web export.
 export function generateStaticParams() {
@@ -34,7 +34,7 @@ export default function CommitteePage() {
         <title>{`${committee.code} — HUSMUN 2026`}</title>
       </Head>
 
-      <TopBar compact={compact} />
+      <NavBar />
 
       <Section style={styles.hero}>
         <Reveal style={styles.heroInner}>
@@ -101,32 +101,13 @@ export default function CommitteePage() {
             <PagerLink href={`/committees/${next.id}`} label="Next" code={next.code} align="right" />
           </View>
         </Reveal>
+        <Reveal>
+          <CountryMatrixCallout />
+        </Reveal>
       </Section>
 
       <Footer />
     </PageScroll>
-  );
-}
-
-// Three equal columns (back · emblem · spacer) so the emblem stays centred.
-function TopBar({ compact }: { compact: boolean }) {
-  return (
-    <View style={[styles.topBar, { paddingHorizontal: compact ? space.md : space.lg }]}>
-      <View style={styles.topSide}>
-        <Link href="/" asChild>
-          <Pressable accessibilityRole="link" style={webOnly({ cursor: 'pointer' })}>
-            <Text style={styles.topLink}>{compact ? '← Home' : '← All Committees'}</Text>
-          </Pressable>
-        </Link>
-      </View>
-      <Link href="/" asChild>
-        <Pressable accessibilityRole="link" accessibilityLabel="HUSMUN home" style={styles.topCenter}>
-          <Image source={logo} style={styles.topLogo} />
-          {!compact && <Text style={styles.topTitle}>HUSMUN</Text>}
-        </Pressable>
-      </Link>
-      <View style={styles.topSide} />
-    </View>
   );
 }
 
@@ -178,25 +159,6 @@ function PagerLink({ href, label, code, align }: { href: Href; label: string; co
 }
 
 const styles = StyleSheet.create({
-  topBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: space.sm,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.goldFaint,
-    backgroundColor: colors.navy,
-  },
-  topSide: { flex: 1 },
-  topCenter: { flexDirection: 'row', alignItems: 'center', gap: space.xs },
-  topLogo: { width: 44, height: 44 },
-  topTitle: { fontFamily: fonts.display, fontSize: 18, letterSpacing: 3, color: colors.ivory },
-  topLink: {
-    fontFamily: fonts.displayRegular,
-    fontSize: 12,
-    letterSpacing: 2,
-    color: colors.gold,
-    textTransform: 'uppercase',
-  },
   hero: { paddingBottom: 0 },
   heroInner: { alignItems: 'center', gap: space.md },
   code: { fontFamily: fonts.display, fontSize: 56, letterSpacing: 6, color: colors.goldLight, textAlign: 'center' },

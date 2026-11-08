@@ -1,4 +1,4 @@
-export type RuleBlock = { heading?: string; text: string };
+export type RuleBlock = { heading?: string; text: string; list?: string[] };
 
 export type Rule = { title: string; blocks: RuleBlock[] };
 
@@ -68,6 +68,96 @@ export const rules: Rule[] = [
       {
         text: 'The use of devices for entertainment, social media, or unrelated communication during sessions is strictly prohibited. If this behaviour is repeated, the device may be confiscated.',
       },
+      {
+        text: 'Photography or videography in committee rooms is permitted only with authorisation from the Secretariat or the press and media.',
+      },
+    ],
+  },
+  {
+    title: 'Punctuality and Attendance',
+    blocks: [
+      {
+        text: 'All participants are expected to be punctual for committee sessions, ceremonies, and scheduled events using the given itinerary.',
+      },
+      {
+        text: 'Delegates must be present for attendance at the beginning of each session; repeated tardiness or absence without a valid justification may lead to disciplinary measures.',
+      },
+    ],
+  },
+  {
+    title: 'Security and Discipline',
+    blocks: [
+      {
+        text: 'Delegates must comply with instructions issued by the Secretariat, the USG of Security and Discipline, volunteers, and event coordinators at all times.',
+      },
+      {
+        text: 'Any physical or verbal altercation, property damage, or conduct that endangers the safety of participants will result in intervention from the USG of Security and Discipline.',
+      },
+      {
+        heading: 'Violations will be addressed through a three-tier response system',
+        text: '',
+        list: [
+          'Verbal Warning — for minor infractions or first-time misconduct.',
+          'Written Warning — issued for repeated or serious misconduct and reported to the Secretariat.',
+          'Dismissal — participants will be removed from the conference upon approval by the Secretary-General.',
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Conduct Beyond Committee Sessions',
+    blocks: [
+      { text: 'Delegates are representatives of both their assigned nations and their respective schools.' },
+      {
+        text: 'Professional behaviour is expected in all conference spaces, including lobbies, the cafeteria, and social events.',
+      },
+      { text: 'Respect for host institution property and staff must be maintained at all times.' },
+    ],
+  },
+  {
+    title: 'Reporting Misconduct',
+    blocks: [
+      {
+        text: 'Any participant who witnesses or experiences inappropriate behaviour may report it directly to the USG of Security and Discipline.',
+      },
+      {
+        text: 'All reports will be handled discreetly, ensuring fairness and confidentiality for all parties involved.',
+      },
     ],
   },
 ];
+
+export type EvacuationStage = { title: string; steps: string[] };
+
+export const evacuation = {
+  chainOfCommand: [
+    { role: 'The Secretary-General', duty: 'Authorises the evacuation.' },
+    { role: 'The USG of Security and Discipline', duty: 'Supervises the process.' },
+    {
+      role: 'Committee Chairs and Admin',
+      duty: 'Ensure all delegates exit their rooms promptly and safely.',
+    },
+  ],
+  stages: [
+    {
+      title: 'During Committee',
+      steps: [
+        'The evacuation will be triggered by the alarm system.',
+        'Every individual is requested to remain calm. Chairs must halt debate, instruct delegates to leave all materials behind, and exit the rooms.',
+        'The USG of Security and Discipline must immediately direct delegates down the stairs.',
+        'Admin assigned to each committee will ensure rooms and washrooms are empty.',
+        'The delegates, Admin, EB, Secretariat, and faculty must make it to the ground floor as soon as instructed and out of the school building through any of the 3 front exits.',
+        'All participants and faculty must stay out of the school building until instructed otherwise by the Secretary-General or the USG of Security and Discipline.',
+      ],
+    },
+    {
+      title: 'During Cafeteria Breaks',
+      steps: [
+        'The evacuation will be triggered by the alarm system.',
+        'Every individual is requested to remain calm and follow the immediate instructions of the Secretary-General.',
+        'The USG of Security and Discipline, as well as the Admin assigned during breaks, will direct all delegates, EB, and the Secretariat across the school ground floor to the 3 front exits.',
+        'All participants and faculty must stay out of the school building until instructed otherwise by the Secretary-General or the USG of Security and Discipline.',
+      ],
+    },
+  ] as EvacuationStage[],
+};

@@ -1,12 +1,13 @@
 import Head from 'expo-router/head';
 import { StyleSheet, Text } from 'react-native';
 
+import { CountryMatrixCallout, RegistrationCards } from '../components/Callouts';
 import { CommitteeGrid } from '../components/CommitteeGrid';
 import { Hero } from '../components/Hero';
+import { NavBar } from '../components/NavBar';
 import { SectionHeading } from '../components/Ornament';
 import { PageScroll } from '../components/PageScroll';
 import { Reveal } from '../components/Reveal';
-import { RulesSection } from '../components/RulesSection';
 import { AgendaSection, Footer, Section } from '../components/Sections';
 import { colors, fonts, space } from '../theme';
 
@@ -17,6 +18,7 @@ export default function Home() {
         <title>HUSMUN 2026 — Model United Nations</title>
       </Head>
 
+      <NavBar />
       <Hero />
 
       <Section>
@@ -25,10 +27,22 @@ export default function Home() {
           <Text style={styles.intro}>Select a committee to read its overview.</Text>
         </Reveal>
         <CommitteeGrid />
+        <Reveal>
+          <CountryMatrixCallout />
+        </Reveal>
       </Section>
 
       <AgendaSection />
-      <RulesSection />
+
+      <Section>
+        <Reveal>
+          <SectionHeading eyebrow="Join Us" title="Register" />
+        </Reveal>
+        <Reveal delay={120}>
+          <RegistrationCards />
+        </Reveal>
+      </Section>
+
       <Footer />
     </PageScroll>
   );

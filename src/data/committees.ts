@@ -130,5 +130,25 @@ export const conference = {
   motto: ['Debate', 'Diplomacy', 'Leadership', 'Impact'],
 };
 
+export const links = {
+  registration: [
+    {
+      label: 'Internal Delegates',
+      note: 'For students of Hiranandani Upscale School',
+      url: 'https://forms.gle/UukDu2bVSHhrHZ1p9',
+    },
+    {
+      label: 'External Delegates',
+      note: 'For delegates from all other schools',
+      url: 'https://forms.gle/PBUGF8nRPJkMy2TR8',
+    },
+  ],
+  countryMatrix:
+    'https://docs.google.com/spreadsheets/d/1b66ag5KnXhMrNDgsgPqUWY4UpQWKEnZipHK2PTL0RJo/edit?pli=1&gid=602051092#gid=602051092',
+  // Read-only, chrome-free view of the same sheet for embedding on the web.
+  countryMatrixEmbed:
+    'https://docs.google.com/spreadsheets/d/1b66ag5KnXhMrNDgsgPqUWY4UpQWKEnZipHK2PTL0RJo/preview?gid=602051092',
+};
+
 export const findCommittee = (id: string | undefined) =>
   committees.find((c) => c.id === id);

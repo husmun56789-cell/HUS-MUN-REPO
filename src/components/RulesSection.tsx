@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-import { rules, rulesWarning } from '../data/rules';
+import { evacuation, rules, rulesWarning } from '../data/rules';
 import { colors, fonts, space } from '../theme';
 import { SectionHeading } from './Ornament';
 import { Reveal } from './Reveal';
@@ -38,7 +38,56 @@ export function RulesSection() {
               {rule.blocks.map((block) => (
                 <View key={block.text} style={styles.block}>
                   {block.heading ? <Text style={styles.blockHeading}>{block.heading}</Text> : null}
-                  <Text style={styles.body}>{block.text}</Text>
+                  {block.text ? <Text style={styles.body}>{block.text}</Text> : null}
+                  {block.list?.map((item, n) => (
+                    <View key={item} style={styles.listItem}>
+                      <Text style={styles.listNumber}>{n + 1}</Text>
+                      <Text style={[styles.body, styles.listText]}>{item}</Text>
+                    </View>
+                  ))}
+                </View>
+              ))}
+            </View>
+          </Reveal>
+        ))}
+      </View>
+    </Section>
+  );
+}
+
+export function EvacuationSection() {
+  const { width } = useViewport();
+  const compact = width < 600;
+  return (
+    <Section style={styles.evacuation}>
+      <Reveal>
+        <SectionHeading eyebrow="Safety" title="Fire Evacuation" />
+      </Reveal>
+
+      <Reveal delay={100}>
+        <View style={[styles.card, compact && styles.cardCompact, styles.narrow]}>
+          <Text style={[styles.title, compact && styles.titleCompact]}>Chain of Command</Text>
+          {evacuation.chainOfCommand.map((c, i) => (
+            <View key={c.role} style={styles.listItem}>
+              <Text style={styles.listNumber}>{i + 1}</Text>
+              <Text style={[styles.body, styles.listText]}>
+                <Text style={styles.role}>{c.role}</Text> — {c.duty}
+              </Text>
+            </View>
+          ))}
+        </View>
+      </Reveal>
+
+      <View style={styles.list}>
+        {evacuation.stages.map((stage) => (
+          <Reveal key={stage.title}>
+            <View style={[styles.card, compact && styles.cardCompact]}>
+              <Text style={styles.eyebrow}>Procedure</Text>
+              <Text style={[styles.title, compact && styles.titleCompact]}>{stage.title}</Text>
+              {stage.steps.map((step, i) => (
+                <View key={step} style={styles.listItem}>
+                  <Text style={styles.listNumber}>{i + 1}</Text>
+                  <Text style={[styles.body, styles.listText]}>{step}</Text>
                 </View>
               ))}
             </View>
@@ -104,5 +153,24 @@ const styles = StyleSheet.create({
   titleCompact: { fontSize: 19, letterSpacing: 2 },
   block: { gap: space.xs },
   blockHeading: { fontFamily: fonts.display, fontSize: 15, letterSpacing: 1, color: colors.ivory },
+  listItem: { flexDirection: 'row', alignItems: 'flex-start', gap: space.sm },
+  listNumber: {
+    width: 26,
+    height: 26,
+    marginTop: 1,
+    borderRadius: 13,
+    borderWidth: 1,
+    borderColor: colors.goldLine,
+    textAlign: 'center',
+    lineHeight: 24,
+    fontFamily: fonts.display,
+    fontSize: 12,
+    color: colors.goldLight,
+  },
+  listText: { flex: 1 },
+  role: { fontFamily: fonts.serifBold, color: colors.ivory },
+  eyebrow: { fontFamily: fonts.displayRegular, fontSize: 11, letterSpacing: 4, color: colors.muted, textAlign: 'center', textTransform: 'uppercase', marginBottom: -space.sm },
+  narrow: { alignSelf: 'center', width: '100%', maxWidth: RULES_MAX_WIDTH },
+  evacuation: { backgroundColor: colors.navy, borderTopWidth: 1, borderColor: colors.goldFaint },
   body: { fontFamily: fonts.serif, fontSize: 19, lineHeight: 29, color: colors.muted },
 });
