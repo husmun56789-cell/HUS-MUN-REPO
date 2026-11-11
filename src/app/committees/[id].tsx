@@ -61,7 +61,7 @@ export default function CommitteePage() {
         {committee.agenda ? (
           <Reveal delay={180} style={styles.agendaBlock}>
             <SectionHeading title="Agenda" />
-            <AgendaCard code={committee.code} agenda={committee.agenda} />
+            <AgendaCard code={committee.code} agenda={committee.agenda} freezeDate={committee.freezeDate} />
           </Reveal>
         ) : null}
         <Reveal delay={200} style={styles.agendaBlock}>
@@ -89,10 +89,6 @@ export default function CommitteePage() {
           <View style={[styles.facts, compact && styles.factsCompact]}>
             <Fact label="Dates" value={conference.dates} />
             <Fact label="Venue" value={conference.venue} />
-            <Fact
-              label="Entry Fees"
-              value={conference.fees.map((f) => `${f.amount} ${f.label.replace(' Delegates', '')}`).join('  ·  ')}
-            />
           </View>
         </Reveal>
         <Reveal delay={360}>

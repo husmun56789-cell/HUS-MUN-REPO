@@ -7,6 +7,7 @@ import { Hero } from '../components/Hero';
 import { NavBar } from '../components/NavBar';
 import { SectionHeading } from '../components/Ornament';
 import { PageScroll } from '../components/PageScroll';
+import { ScheduleSection } from '../components/ScheduleSection';
 import { Reveal } from '../components/Reveal';
 import { AgendaSection, Footer, Section } from '../components/Sections';
 import { colors, fonts, space } from '../theme';
@@ -33,6 +34,7 @@ export default function Home() {
       </Section>
 
       <AgendaSection />
+      <ScheduleSection />
 
       <Section>
         <Reveal>

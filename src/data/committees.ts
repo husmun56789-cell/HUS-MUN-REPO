@@ -10,6 +10,8 @@ export type Committee = {
   overview: string;
   // Press committees report on the others and have no agenda of their own.
   agenda?: string;
+  // Crisis committees fix a point in time after which real-world events are ignored.
+  freezeDate?: string;
   brief: Brief;
   teams?: { options: string[]; teamSize: number };
   emblem: ImageSourcePropType;
@@ -36,7 +38,7 @@ export const committees: Committee[] = [
     overview:
       'Address transnational crime, drug trafficking, and international cooperation against organised crime.',
     agenda:
-      'Human Trafficking for Forced Criminality in Online Scam Centres',
+      'Addressing the Exploitation of Trafficked Persons in Transnational Cybercrime Operations',
     brief: { intro: 'Delves into the world of transnational crime, drug trafficking, human trafficking, cybercrime, and corruption. Ideal for delegates interested in criminal networks, international law enforcement, and the complex challenge of tackling organised crime across national borders.' },
     emblem: require('../../assets/images/committees/unodc.png'),
   },
@@ -47,7 +49,7 @@ export const committees: Committee[] = [
     overview:
       'Examine pressing human-rights concerns and debate measures to protect fundamental freedoms worldwide.',
     agenda:
-      'Addressing Human Rights Violations Against Refugees and Migrants',
+      'Deliberation on the Situation of Human Rights in the Xinjiang Uyghur Autonomous Region and Other Regions with Predominantly Muslim Minorities in China',
     brief: { intro: 'Involves debating solutions to human rights abuses and questioning the ethical responsibilities of governments. A strong choice if you’re interested in social justice, international law, and challenging the systems that allow discrimination, persecution, and violations of fundamental freedoms to persist.' },
     emblem: require('../../assets/images/committees/unhrc.png'),
   },
@@ -58,7 +60,8 @@ export const committees: Committee[] = [
     overview:
       'Respond to rapidly evolving situations through strategic decision-making, negotiation, and crisis management.',
     agenda:
-      'Addressing the Breakdown of the Gaza Ceasefire and Establishing a Framework for Lasting Peace Between Israel and Hamas',
+      'Discussing the Recent Russia–Ukraine Conflict',
+    freezeDate: '24th February 2022',
     brief: { intro: 'A fast-paced, high-pressure committee where situations evolve through unexpected crisis updates, forcing delegates to adapt their strategies and make decisions under uncertainty. With dynamic developments, urgent directives, and intense negotiations, CCC is ideal for those who enjoy thinking on their feet, taking initiative, and navigating unpredictable situations.' },
     emblem: require('../../assets/images/committees/ccc.png'),
   },
@@ -122,10 +125,6 @@ export const conference = {
     '5/63, Old Mahabalipuram Road, Opp. SIPCOT IT Park,',
     'Egattur Village, Rajiv Gandhi Salai, Kelambakkam,',
     'Chennai, Tamil Nadu — 600130',
-  ],
-  fees: [
-    { label: 'Internal Delegates', amount: '₹800' },
-    { label: 'External Delegates', amount: '₹1,600' },
   ],
   motto: ['Debate', 'Diplomacy', 'Leadership', 'Impact'],
 };

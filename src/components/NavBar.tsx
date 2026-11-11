@@ -10,6 +10,7 @@ type NavItem = { label: string; href: Href; match: (path: string) => boolean };
 
 const items: NavItem[] = [
   { label: 'Committees', href: '/', match: (p) => p === '/' || p.startsWith('/committees') },
+  { label: 'Schedule', href: '/schedule', match: (p) => p.startsWith('/schedule') },
   { label: 'Code of Conduct', href: '/code-of-conduct', match: (p) => p.startsWith('/code-of-conduct') },
   { label: 'Country Matrix', href: '/country-matrix', match: (p) => p.startsWith('/country-matrix') },
 ];
@@ -19,7 +20,7 @@ const items: NavItem[] = [
 export function NavBar() {
   const { width } = useViewport();
   const pathname = usePathname();
-  const compact = width < 820;
+  const compact = width < 1000;
   const gutter = width < 600 ? space.md : space.lg;
 
   const links = (

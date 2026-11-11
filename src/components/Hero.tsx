@@ -102,14 +102,6 @@ export function Hero() {
           <Divider width={compact ? 180 : 260} />
           <Text style={styles.dates}>{conference.dates}</Text>
           <Text style={styles.venue}>{conference.venue}</Text>
-          <Text style={styles.fee}>Entry Fees</Text>
-          <View style={styles.feeRow}>
-            {conference.fees.map((f) => (
-              <Text key={f.label} style={styles.feeItem}>
-                <Text style={styles.feeValue}>{f.amount}</Text> {f.label}
-              </Text>
-            ))}
-          </View>
         </Animated.View>
 
         <Animated.Text style={[styles.motto, compact && styles.mottoCompact, textIn(0.75)]}>
@@ -172,10 +164,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   venue: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.ivory, textAlign: 'center' },
-  fee: { fontFamily: fonts.displayRegular, fontSize: 15, letterSpacing: 2, color: colors.muted, textTransform: 'uppercase' },
-  feeRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', columnGap: space.md, rowGap: 4 },
-  feeItem: { fontFamily: fonts.displayRegular, fontSize: 14, letterSpacing: 1.5, color: colors.muted, textTransform: 'uppercase' },
-  feeValue: { fontFamily: fonts.display, fontSize: 16, color: colors.ivory },
   motto: {
     marginTop: space.sm,
     fontFamily: fonts.display,

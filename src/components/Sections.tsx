@@ -37,7 +37,7 @@ export function AgendaSection() {
             delay={(i % columns) * 120}
             style={{ width: columns === 2 ? '48%' : '100%' }}
           >
-            <AgendaCard code={c.code} agenda={c.agenda!} />
+            <AgendaCard code={c.code} agenda={c.agenda!} freezeDate={c.freezeDate} />
           </Reveal>
         ))}
       </View>
@@ -45,12 +45,13 @@ export function AgendaSection() {
   );
 }
 
-export function AgendaCard({ code, agenda }: { code: string; agenda: string }) {
+export function AgendaCard({ code, agenda, freezeDate }: { code: string; agenda: string; freezeDate?: string }) {
   return (
     <View style={styles.agendaCard}>
       <Text style={styles.agendaCode}>{code}</Text>
       <Divider width={120} />
       <Text style={styles.agendaText}>{agenda}</Text>
+      {freezeDate ? <Text style={styles.freeze}>Freeze Date · {freezeDate}</Text> : null}
     </View>
   );
 }
@@ -89,6 +90,14 @@ const styles = StyleSheet.create({
   },
   agendaCode: { fontFamily: fonts.display, fontSize: 20, letterSpacing: 3, color: colors.goldLight, textAlign: 'center' },
   agendaText: { fontFamily: fonts.serif, fontSize: 21, lineHeight: 30, color: colors.ivory, textAlign: 'center' },
+  freeze: {
+    fontFamily: fonts.displayRegular,
+    fontSize: 12,
+    letterSpacing: 2,
+    color: colors.gold,
+    textAlign: 'center',
+    textTransform: 'uppercase',
+  },
   footer: {
     alignItems: 'center',
     gap: space.xs,
