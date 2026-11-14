@@ -25,11 +25,11 @@ export const rules: Rule[] = [
     title: 'Dress Code',
     blocks: [
       {
-        heading: 'Cultural attire is mandatory on the 7th',
+        heading: 'Cultural attire is mandatory on the 18th',
         text: 'All traditional formals (Example, Kurtas, sarees, half-sarees…). Casual or inappropriate clothing, including jeans, T-shirts, shorts, or sportswear, is not permitted.',
       },
       {
-        heading: 'Western business attire is mandatory on the 8th',
+        heading: 'Western business attire is mandatory on the 19th',
         text: 'A Suit, blazer, formal shirt, formal blouse, formal skirt (knee-length or longer) or trousers, formal dresses, stockings for dresses and skirts, closed-toe shoes, and formal shoes, as well as sleeveless attire, are permitted. Neutral makeup is requested, and hair should be well-kept for the conference.',
       },
     ],
