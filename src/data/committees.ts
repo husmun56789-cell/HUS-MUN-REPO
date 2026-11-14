@@ -60,7 +60,7 @@ export const committees: Committee[] = [
     overview:
       'Respond to rapidly evolving situations through strategic decision-making, negotiation, and crisis management.',
     agenda:
-      'Discussing the Recent Russia–Ukraine Conflict',
+      'The Ongoing Russia–Ukraine War and Its Implications for International Peace and Security',
     freezeDate: '24th February 2022',
     brief: { intro: 'A fast-paced, high-pressure committee where situations evolve through unexpected crisis updates, forcing delegates to adapt their strategies and make decisions under uncertainty. With dynamic developments, urgent directives, and intense negotiations, CCC is ideal for those who enjoy thinking on their feet, taking initiative, and navigating unpredictable situations.' },
     emblem: require('../../assets/images/committees/ccc.png'),
@@ -68,7 +68,7 @@ export const committees: Committee[] = [
   {
     id: 'unga',
     code: 'UNGA ESS',
-    name: 'United Nations General Assembly — Environmental and Sustainability Committee',
+    name: 'United Nations General Assembly — Emergency Special Session',
     overview:
       'Tackle urgent international crises through diplomacy, coalition-building, and collective decision-making.',
     agenda:

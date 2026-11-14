@@ -7,7 +7,7 @@ export const schedule: ScheduleDay[] = [
   {
     day: 'Day 1',
     date: '18th December',
-    dress: 'Traditional Wear',
+    dress: 'Cultural Attire',
     items: [
       { time: '8:00 – 8:30 AM', event: 'Registration and Seating of Delegates' },
       { time: '8:30 – 9:15 AM', event: 'Opening Ceremony' },
@@ -21,7 +21,7 @@ export const schedule: ScheduleDay[] = [
   {
     day: 'Day 2',
     date: '19th December',
-    dress: 'Western Wear',
+    dress: 'Western Business Attire',
     items: [
       { time: '8:00 – 8:15 AM', event: 'Delegates Assemble and Announcements' },
       { time: '8:15 – 10:45 AM', event: 'Committee Session III' },
