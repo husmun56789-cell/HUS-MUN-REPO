@@ -72,7 +72,8 @@ export const committees: Committee[] = [
     overview:
       'Tackle urgent international crises through diplomacy, coalition-building, and collective decision-making.',
     agenda:
-      'Financing Climate Adaptation in Developing Countries',
+      'ESS-II — The Situation in Hungary',
+    freezeDate: '4th November 1956',
     brief: { intro: 'Explores the intersection of environmental protection, economic development, and international responsibility. From climate change and renewable energy to resource management and biodiversity, this committee is a great choice for delegates interested in sustainability, global cooperation, and finding practical solutions to challenges that affect the planet.' },
     emblem: require('../../assets/images/committees/unga.png'),
   },
