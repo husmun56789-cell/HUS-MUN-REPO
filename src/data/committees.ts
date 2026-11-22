@@ -38,7 +38,8 @@ export const committees: Committee[] = [
     overview:
       'Address transnational crime, drug trafficking, and international cooperation against organised crime.',
     agenda:
-      'Addressing the Exploitation of Trafficked Persons in Transnational Cybercrime Operations',
+      'Addressing the Convergence of Transnational Organised Crime and Non-State Armed Networks',
+    freezeDate: '14th May 2008',
     brief: { intro: 'Delves into the world of transnational crime, drug trafficking, human trafficking, cybercrime, and corruption. Ideal for delegates interested in criminal networks, international law enforcement, and the complex challenge of tackling organised crime across national borders.' },
     emblem: require('../../assets/images/committees/unodc.png'),
   },

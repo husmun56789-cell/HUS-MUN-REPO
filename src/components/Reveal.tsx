@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Animated, Easing, View, type StyleProp, type ViewStyle } from 'react-native';
 
 import { useScroll } from './PageScroll';
@@ -16,7 +16,7 @@ export function Reveal({ children, delay = 0, distance = 32, style }: Props) {
   const { subscribe } = useScroll();
   const { height } = useViewport();
   const ref = useRef<View>(null);
-  const progress = useRef(new Animated.Value(0)).current;
+  const progress = useState(() => new Animated.Value(0))[0];
   const shown = useRef(false);
 
   useEffect(() => {

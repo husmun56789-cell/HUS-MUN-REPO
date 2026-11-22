@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useMemo, useRef, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
 import { Animated, StyleSheet, type NativeScrollEvent, type NativeSyntheticEvent } from 'react-native';
 
 import { colors } from '../theme';
@@ -21,8 +21,8 @@ export function useScroll() {
 // A full-page scroll container that shares its scroll position with
 // descendants, so sections can animate as they enter the viewport.
 export function PageScroll({ children }: { children: ReactNode }) {
-  const scrollY = useRef(new Animated.Value(0)).current;
-  const listeners = useRef(new Set<Listener>()).current;
+  const scrollY = useState(() => new Animated.Value(0))[0];
+  const listeners = useState(() => new Set<Listener>())[0];
 
   const subscribe = useCallback(
     (listener: Listener) => {

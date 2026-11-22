@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Animated, Easing, Image, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -14,8 +14,8 @@ const background = require('../../assets/images/hero-bg.jpg');
 export function Hero() {
   const { width, height } = useViewport();
   const { scrollY } = useScroll();
-  const intro = useRef(new Animated.Value(0)).current;
-  const pulse = useRef(new Animated.Value(0)).current;
+  const intro = useState(() => new Animated.Value(0))[0];
+  const pulse = useState(() => new Animated.Value(0))[0];
 
   useEffect(() => {
     Animated.timing(intro, {
