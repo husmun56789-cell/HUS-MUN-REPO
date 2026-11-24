@@ -21,7 +21,6 @@ export default function RegisterPage() {
         <Reveal style={styles.heading}>
           <SectionHeading eyebrow={conference.dates} title="Registration" />
           <Text style={styles.intro}>Choose the form that applies to you.</Text>
-          <Text style={styles.intro}>1500 for Externals.</Text>
         </Reveal>
         <Reveal delay={120}>
           <RegistrationCards />
